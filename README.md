@@ -3,6 +3,8 @@
 ## Description
 Sample Maze solver uses recursive logic to solve maze
 
+## App is hosted on https://maze-solver-recursive.appspot.com/
+
 ## Scripts
 
 ### Main Dev Scripts
