@@ -9,7 +9,6 @@ const initialState = {
   startIndex: [],
   endIndex: [],
   correctPath: [],
-  wasHere: [],
   solved: false
 }
 
@@ -23,13 +22,11 @@ const actionHandleReducer = handleActions({
     let {
       startIndex,
       endIndex,
-      wasHere,
       correctPath,
       maze
-    } = state
+    } = initialState
 
     maze = []
-
     mazeHeight.forEach((ele, idx) => {
       const mazeWidth = ele.split('')
       const startYAxis = mazeWidth.indexOf('S')
@@ -39,11 +36,12 @@ const actionHandleReducer = handleActions({
       maze.push(mazeWidth)
     })
 
-    wasHere = generateTwoDiemesionArray(maze[0].length, maze.length)
+    const wasHere = generateTwoDiemesionArray(maze[0].length, maze.length)
     correctPath = generateTwoDiemesionArray(maze[0].length, maze.length)
 
     const recursiveSolve = (xAxis, yAxis) => {
       if (xAxis === endIndex[0] && yAxis === endIndex[1]) {
+        correctPath[xAxis][yAxis] = true
         return true // If you reached the end
       }
 
@@ -97,7 +95,6 @@ const actionHandleReducer = handleActions({
       maze,
       startIndex,
       endIndex,
-      wasHere,
       correctPath,
       solved
     }

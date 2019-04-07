@@ -11,7 +11,6 @@
     "build": "cross-env NODE_ENV=production webpack",
     "postinstall:husky": "node node_modules/husky/lib/installer/bin install",
     "precommit": "npm-run-all -p precommit:*",
-    "commitmsg": "cz-customizable-ghooks",
     "prepush": "npm-run-all -p prepush:*",
     "clean:all": "npm-run-all -p clean:dll clean:build",
     "clean:build": "rimraf build",
