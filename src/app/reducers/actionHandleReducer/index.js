@@ -51,26 +51,26 @@ const actionHandleReducer = handleActions({
 
       wasHere[xAxis][yAxis] = true
 
-      if (xAxis !== 0) { // Checks if not on left edge
-        if (recursiveSolve(xAxis - 1, yAxis)) { // Recalls method one to the left
+      if (xAxis !== 0) { // Checks if not on top
+        if (recursiveSolve(xAxis - 1, yAxis)) { // Recalls method one to the top
           correctPath[xAxis][yAxis] = true // Sets that path value to true;
           return true
         }
       }
-      if (xAxis !== maze[0].length - 1) { // Checks if not on right edge
-        if (recursiveSolve(xAxis + 1, yAxis)) { // Recalls method one to the right
+      if (xAxis !== maze[0].length - 1) { // Checks if not on bottom
+        if (recursiveSolve(xAxis + 1, yAxis)) { // Recalls method one to the below
           correctPath[xAxis][yAxis] = true
           return true
         }
       }
-      if (yAxis !== 0) { // Checks if not on top edge
-        if (recursiveSolve(xAxis, yAxis - 1)) { // Recalls method one up
+      if (yAxis !== 0) { // Checks if not on left
+        if (recursiveSolve(xAxis, yAxis - 1)) { // Recalls method one to the left
           correctPath[xAxis][yAxis] = true
           return true
         }
       }
-      if (yAxis !== maze.length - 1) { // Checks if not on bottom edge
-        if (recursiveSolve(xAxis, yAxis + 1)) { // Recalls method one down
+      if (yAxis !== maze.length - 1) { // Checks if not on right edge
+        if (recursiveSolve(xAxis, yAxis + 1)) { // Recalls method one to the right
           correctPath[xAxis][yAxis] = true
           return true
         }
